@@ -151,17 +151,11 @@
     }
 
     .grafico h2 {
-      margin: 0;
+      margin: 0 0 18px;
       font-family: "Fredoka", Arial, sans-serif;
       font-weight: 500;
       font-size: 26px;
       text-align: center;
-    }
-
-    .grafico .nota {
-      margin: 4px 0 18px;
-      text-align: center;
-      color: var(--azul-suave);
     }
 
     /* ---------- Pie ---------- */
@@ -204,4 +198,46 @@
       <svg class="paisaje" viewBox="0 0 800 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
         <path d="M0 96 C120 46 240 46 360 86 S600 108 800 58 V140 H0 Z" fill="#CFEBDD"/>
         <path d="M0 124 C150 84 300 94 420 116 S680 124 800 98 V140 H0 Z" fill="#A9DCC2"/>
-        <path d="M70 134 C210 106 270 122 410 112 S630 108 740 124" fill="none" stroke="#FFFFFF" stroke-width="5"
+        <path d="M70 134 C210 106 270 122 410 112 S630 108 740 124" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+      </svg>
+    </header>
+
+    <!-- Resumen: actualizá estos números si seguís sumando caminatas -->
+    <ul class="resumen">
+      <li>
+        <span class="icono" aria-hidden="true">👣</span>
+        <span>
+          <span class="numero">391.370</span>
+          <span class="detalle">pasos en total</span>
+        </span>
+      </li>
+      <li>
+        <span class="icono" aria-hidden="true">🗓️</span>
+        <span>
+          <span class="numero">73</span>
+          <span class="detalle">días caminados</span>
+        </span>
+      </li>
+      <li>
+        <span class="icono" aria-hidden="true">🏆</span>
+        <span>
+          <span class="numero">22.548</span>
+          <span class="detalle">pasos en mi mejor día</span>
+        </span>
+      </li>
+    </ul>
+
+    <section class="grafico">
+      <h2>🗓️ Calendario de caminatas</h2>
+
+      <!-- Gráfico de Flourish: sin cambios -->
+      <div class="flourish-embed flourish-chart" data-src="visualisation/30909218"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/30909218/thumbnail" width="100%" alt="visualization" /></noscript></div><div class="flourish-fallback" data-for="visualisation/30909218"><a href="https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script">https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script</a></div>
+    </section>
+
+    <footer>
+      <p>Visualización hecha con <a href="https://flourish.studio" target="_blank" rel="noopener">Flourish</a> 👟</p>
+    </footer>
+
+  </main>
+</body>
+</html>
