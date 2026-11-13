@@ -1,15 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mis caminatas</title>
-</head>
-<body>
-<h1 style="color: #1F3A5F; font-weight: bold; font-family: Arial, sans-serif; text-align: center; font-size: 28px;">
-  Calendario de caminatas
-</h1>
-<div class="flourish-embed flourish-chart" data-src="visualisation/30909218"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/30909218/thumbnail" width="100%" alt="visualization" /></noscript></div><div class="flourish-fallback" data-for="visualisation/30909218"><a href="https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script">https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script</a></div>
-</body>
 
-</html>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cielo: #EAF6FD;
+      --cielo-alto: #DCF0FB;
+      --azul: #1F3A5F;
+      --azul-suave: #4A6585;
+      --borde: #CFE6F3;
+      --pasto-1: #CFEBDD;
+      --pasto-2: #A9DCC2;
+      --sol: #FFC94D;
+      --blanco: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Nunito", Arial, sans-serif;
+      color: var(--azul);
+      background: linear-gradient(180deg, var(--cielo-alto) 0%, var(--cielo) 320px, #F2FAFE 100%);
+      background-attachment: fixed;
+      line-height: 1.5;
+    }
+
+    .pagina {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* ---------- Cabecera ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #D3ECF9 0%, #E6F5FC 100%);
+      border: 1px solid var(--borde);
+      text-align: center;
+      padding: 40px 24px 0;
+    }
+
+    .sol {
+      position: absolute;
+      top: 28px;
+      right: 9%;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--sol);
+      box-shadow: 0 0 0 12px rgba(255, 201, 77, .25);
+    }
+
+    .insignia {
+      display: inline-grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Fredoka", Arial, sans-serif;
+      font-weight: 600;
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--azul);
+    }
+
+    .bajada {
+      margin: 12px auto 0;
+      max-width: 46ch;
+      font-size: 18px;
+      color: var(--azul-suave);
+    }
+
+    .paisaje {
+      display: block;
+      width: 100%;
+      height: 140px;
+      margin-top: 8px;
+    }
+
+    /* ---------- Resumen ---------- */
+    .resumen {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .resumen li {
+      flex: 1 1 200px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+    }
+
+    .resumen li + li { border-left: 1px solid var(--borde); }
+
+    .resumen .icono {
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .resumen .numero {
+      display: block;
+      font-family: "Fredoka", Arial, sans-serif;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .resumen .detalle {
+      display: block;
+      font-size: 14px;
+      color: var(--azul-suave);
+    }
+
+    /* ---------- Gráfico ---------- */
+    .grafico {
+      margin-top: 20px;
+      padding: 24px 20px 20px;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(31, 58, 95, .06);
+    }
+
+    .grafico h2 {
+      margin: 0;
+      font-family: "Fredoka", Arial, sans-serif;
+      font-weight: 500;
+      font-size: 26px;
+      text-align: center;
+    }
+
+    .grafico .nota {
+      margin: 4px 0 18px;
+      text-align: center;
+      color: var(--azul-suave);
+    }
+
+    /* ---------- Pie ---------- */
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--azul-suave);
+    }
+
+    footer a {
+      color: var(--azul);
+      font-weight: 700;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--azul);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding-top: 32px; border-radius: 22px; }
+      .sol { width: 40px; height: 40px; top: 20px; box-shadow: 0 0 0 8px rgba(255, 201, 77, .25); }
+      .resumen li + li { border-left: 0; border-top: 1px solid var(--borde); }
+      .grafico { padding: 20px 12px 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="pagina">
+
+    <header class="hero">
+      <div class="sol" aria-hidden="true"></div>
+      <div class="insignia" aria-hidden="true">👟</div>
+      <h1>Mis caminatas</h1>
+      <p class="bajada">Mis recorridos y los pasos que fui sumando, día por día.</p>
+
+      <svg class="paisaje" viewBox="0 0 800 140" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path d="M0 96 C120 46 240 46 360 86 S600 108 800 58 V140 H0 Z" fill="#CFEBDD"/>
+        <path d="M0 124 C150 84 300 94 420 116 S680 124 800 98 V140 H0 Z" fill="#A9DCC2"/>
+        <path d="M70 134 C210 106 270 122 410 112 S630 108 740 124" fill="none" stroke="#FFFFFF" stroke-width="5"
