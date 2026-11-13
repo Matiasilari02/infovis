@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Mis caminatas</title>
+</head>
+<body>
+<h1 style="color: #1F3A5F; font-weight: bold; font-family: Arial, sans-serif; text-align: center; font-size: 28px;">
+  Calendario de caminatas
+</h1>
+<div class="flourish-embed flourish-chart" data-src="visualisation/30909218"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/30909218/thumbnail" width="100%" alt="visualization" /></noscript></div><div class="flourish-fallback" data-for="visualisation/30909218"><a href="https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script">https://public.flourish.studio/visualisation/30909218/visualisation.json?ref=embed-script</a></div>
+</body>
+
+</html>
